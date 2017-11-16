@@ -1,0 +1,96 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>这是一个课程设计作业</title>
+<!-- <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery
+/jquery-1.4.min.js"></script> -->
+<script src="stopinfo.js"></script>
+<script src="stopoperation.js"></script>
+<!-- <meta http-equiv="refresh" content="1"> -->
+
+<style>  
+body::after{
+    /* background: url(subway_map.jpg)center center no-repeat; */
+    background: url(bgpic.jpg)center center no-repeat;
+    opacity: 0.7;         /* 半透明 */
+    top:0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    position:absolute;
+    content:"";
+    background-size: contain;
+    z-index:-1;
+}
+</style>
+
+
+<script>
+    function draw(){
+        var canvas=document.getElementById("can")
+        var c=canvas.getContext("2d");
+        c.beginPath();
+        c.moveTo(368,377);
+        c.lineTo(624,377);
+        return c;
+        } 
+    function xian(x1,y1,x2,y2) {
+        var canvas = new draw();
+        canvas.strokeStyle = "yellow";
+        canvas.lineWidth = 5;
+        canvas.beginPath();
+        canvas.moveTo(x1,y1);//设置起点
+        canvas.lineTo(x2,y2);//画线
+        /* canvas.moveTo(450, 160);//拿起画笔到新坐标
+        canvas.lineTo(600, 160);//画线 */
+        canvas.closePath();
+        canvas.stroke();
+    }
+    function yuan(x,y) {
+        var canvas = draw();
+        // canvas.fillStyle = "#2E81CE"; //等同于fillStyle="rgba(46,129,206,1)";
+        canvas.beginPath();
+        canvas.arc(x, y, 10, 0, 2 * Math.PI, true);
+        canvas.closePath();
+        canvas.fillStyle="yellow";
+        canvas.fill();
+    }
+    </script>
+
+
+
+<script type="text/javascript">
+    function show_coords(event)
+    {
+    x=event.clientX
+    y=event.clientY
+    alert("X 坐标: " + x + ", Y 坐标: " + y)
+    }
+    </script>
+</head>
+<body style="padding:0;margin:0" ><!--  onmousedown="show_coords(event)"      onload="xian();"      -->
+<canvas id="can" width="1490" height="800" ></canvas>
+<div style="float:left">
+<form>
+    <p>起点：</p>
+    <input type="text" value="万寿路" id="startstop"/><br>
+    <p>终点：</p>
+    <input type="text" value="国贸" id="aimstop"/><br><br>
+    <button onclick="findpath()" type="button">确定</button>
+    <button type="reset" >重置</button>
+</form>
+<div>
+    <textarea style="width:180px; height:300px;"  type="textarea" id="show" readonly></textarea>
+</div>
+</div>
+
+<!-- <p id="pathresult"></p> -->
+<!-- <script src="stopinfo.js"></script>
+<script src="stopoperation.js"></script> -->
+
+
+
+
+</body>
+</html>
