@@ -61,7 +61,7 @@ document.write(tst); */
 /* var xx=[1,2,3,4,5];									//shift和unshift能用
 document.write(xx.shift()); */
 
-function minopen(open) {
+function minopen(open) {              //open表排序
   var minv = stopinfo[open[0]].f;
   var min = 0;
   var minn = stopinfo[open[0]].nm;
@@ -77,7 +77,7 @@ function minopen(open) {
   open.splice(min + 1, 1);
 }
 
-function nxtstp(n, i) {
+function nxtstp(n, i) {                       //下一站
   return stopinfo[stopinfo[n].fllwstop[i]];
 }
 /* var n="公主坟";											//居然真能这么写下一站的函数
@@ -94,10 +94,12 @@ document.write("<br>")
 document.write(dis(stopinfo.阜成门.x,stopinfo.阜成门.y,stopinfo.车公庄.x,stopinfo.车公庄.y)+"阜成门h");
 document.write("<br>") */
 
-var open = [];
-var close = [];
+// var open = [];
+// var close = [];
 
 function findpath() {
+  var open = [];
+  var close = [];
   // alert(document.getElementById("startstop"));
   var start = document.getElementById("startstop").value;
   var aim = document.getElementById("aimstop").value;

@@ -26,7 +26,7 @@ body::after{
 </style>
 
 
-<script>
+<script>                                            //画图部分
     function draw(){
         var canvas=document.getElementById("can")
         var c=canvas.getContext("2d");
@@ -56,11 +56,20 @@ body::after{
         canvas.fillStyle="yellow";
         canvas.fill();
     }
+    function redyuan(x,y) {
+        var canvas = draw();
+        // canvas.fillStyle = "#2E81CE"; //等同于fillStyle="rgba(46,129,206,1)";
+        canvas.beginPath();
+        canvas.arc(x, y, 10, 0, 2 * Math.PI, true);
+        canvas.closePath();
+        canvas.fillStyle="red";
+        canvas.fill();
+    }
     </script>
 
 
 
-<script type="text/javascript">
+<script type="text/javascript">                 //查看点坐标用的
     function show_coords(event)
     {
     x=event.clientX
@@ -68,8 +77,17 @@ body::after{
     alert("X 坐标: " + x + ", Y 坐标: " + y)
     }
     </script>
+
+<!-- <script>
+    var wdx=document.body.clientWidth;
+    var wdy=document.body.clientHeight;
+</script> -->
+
+
+
+
 </head>
-<body style="padding:0;margin:0" ><!--  onmousedown="show_coords(event)"      onload="xian();"      -->
+<body style="padding:0;margin:0" ><!--onmousedown="show_coords(event)"      onload="xian();"      -->
 <canvas id="can" width="1490" height="800" ></canvas>
 <div style="float:left">
 <form>
@@ -78,18 +96,24 @@ body::after{
     <p>终点：</p>
     <input type="text" value="国贸" id="aimstop"/><br><br>
     <button onclick="findpath()" type="button">确定</button>
-    <button type="reset" >重置</button>
+    <!-- <button type="reset" >重置</button> -->
 </form>
 <div>
-    <textarea style="width:180px; height:300px;"  type="textarea" id="show" readonly></textarea>
+    <textarea 
+    style="width:180px; height:300px;"  
+    type="textarea" 
+    id="show" readonly></textarea>
 </div>
 </div>
-
+<button 
+onclick="window.location.reload(true);" 
+style="width:300px;height:300px;margin-left:400px">
+重置</button>
 <!-- <p id="pathresult"></p> -->
 <!-- <script src="stopinfo.js"></script>
 <script src="stopoperation.js"></script> -->
 
-
+<!-- <script>alert("X:"+document.body.clientWidth+"\nY:"+document.body.clientHeight);</script> -->
 
 
 </body>
