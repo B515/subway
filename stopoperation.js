@@ -98,6 +98,7 @@ document.write("<br>") */
 // var close = [];
 
 function findpath() {
+  clearcan();
   var open = [];
   var close = [];
   // alert(document.getElementById("startstop"));
@@ -111,9 +112,9 @@ function findpath() {
     //open表非空时循环
     n = open.shift(); //当前节点放入open表
     if (n == aim) {
-      //输出
       var result = [];
-      
+      //输出
+
       //document.write(stopinfo[n].nm + "<br>");
       //document.getElementById("pathresult").innerHTML=stopinfo[n].nm + "<br>";
       var xxx = stopinfo[n].nm;
@@ -124,9 +125,7 @@ function findpath() {
         // xian(stopinfo[xxx].xx,stopinfo[xxx].yy,stopinfo[stopinfo[xxx].father].xx,stopinfo[stopinfo[xxx].father].yy);         //画出路径
         // yuan(stopinfo[xxx].xx,stopinfo[xxx].yy);
         xian(stopinfo[xxx].xx,stopinfo[xxx].yy,stopinfo[stopinfo[xxx].father].xx,stopinfo[stopinfo[xxx].father].yy);
-        
         xxx = stopinfo[stopinfo[xxx].father].nm;
-        
         result.unshift("\n"+xxx+"\n");
         yuan(stopinfo[xxx].xx,stopinfo[xxx].yy);
         // document.write(xxx + "<br>");
@@ -141,7 +140,6 @@ function findpath() {
     for (var i = 0; i < stopinfo[n].fllwstop.length; i++) {
       //循环m次（m为与此站相邻站点数）
       //下一站站名：nxtstp(n,i).nm
-
       if (open.indexOf(nxtstp(n, i).nm) > -1) {
         nxtstp(n, i).father = stopinfo[n].nm;
       }
@@ -155,9 +153,6 @@ function findpath() {
           dis(nxtstp(n, i).x, nxtstp(n, i).y, stopinfo[aim].x, stopinfo[aim].y);
         open.push(nxtstp(n, i).nm); //将x插入open表中
       }
-
-
-
     }
     close.push(n); //将节点n插入close表中
     minopen(open); //按f(n)将open表排序

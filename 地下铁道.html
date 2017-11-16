@@ -27,6 +27,11 @@ body::after{
 
 
 <script>                                            //画图部分
+    function clearcan(){
+        var canvas=document.getElementById("can")
+        var c=canvas.getContext("2d");
+        c.clearRect(0,0,canvas.width,canvas.height);
+    }
     function draw(){
         var canvas=document.getElementById("can")
         var c=canvas.getContext("2d");
