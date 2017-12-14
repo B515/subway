@@ -1,5 +1,8 @@
+function $(x){
+    return document.getElementById(x);
+}
 function decide_path(){
-    var choosepath = document.getElementById("select_path").value;
+    var choosepath = $("select_path").value;
     switch(choosepath){
         case "short_dis":
         findpath();

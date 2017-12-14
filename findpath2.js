@@ -204,7 +204,7 @@ function findpath2(){
     var close = [];
     var start2 = document.getElementById("startstop").value;
     var aim2 = document.getElementById("aimstop").value;
-    if(stops.indexOf(start)==-1||stops.indexOf(aim)==-1){
+    if(stops.indexOf(start2)==-1||stops.indexOf(aim2)==-1){
         alert("站名错误");
     }
     var a = stopinfo[start2].ln;
