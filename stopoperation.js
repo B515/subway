@@ -78,7 +78,9 @@ function minopen(open) {              //open表排序
 }
 
 function nxtstp(n, i) {                       //下一站
-  return stopinfo[stopinfo[n].fllwstop[i]];
+  var next_stp_name=stopinfo[stopinfo[n].fllwstop[i]];
+  // return stopinfo[stopinfo[n].fllwstop[i]];
+  return next_stp_name;
 }
 /* var n="公主坟";											//居然真能这么写下一站的函数
 var i=0;
@@ -104,6 +106,9 @@ function findpath() {
   // alert(document.getElementById("startstop"));
   var start = document.getElementById("startstop").value;
   var aim = document.getElementById("aimstop").value;
+  if(stops.indexOf(start)==-1||stops.indexOf(aim)==-1){
+    alert("站名错误");
+  }
   open.push(start); //起始节点放入open表
   stopinfo[start].g = 0; //初始化起点的g(x)
   stopinfo[start].h = 0; //初始化起点的h(x)

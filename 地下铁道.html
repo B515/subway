@@ -6,6 +6,8 @@
 <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery
 /jquery-1.4.min.js"></script> -->
 <script src="stopinfo.js"></script>
+<script src="findpath2.js"></script>
+<script src="decide_path.js"></script>
 <script src="stopoperation.js"></script>
 <!-- <meta http-equiv="refresh" content="1"> -->
 
@@ -23,6 +25,11 @@ body::after{
     background-size: contain;
     z-index:-1;
 }
+
+p{
+    text-indent: 2em;
+}
+
 </style>
 
 
@@ -88,37 +95,74 @@ body::after{
     var wdy=document.body.clientHeight;
 </script> -->
 
-
-
-
 </head>
-<body style="padding:0;margin:0" ><!--onmousedown="show_coords(event)"      onload="xian();"      -->
+
+
+
+<body style="padding:0;margin:0"><!--onmousedown="show_coords(event)"      onload="xian();"      -->
 <canvas id="can" width="1490" height="800" ></canvas>
 <div style="float:left">
+<div style="float:left">
 <form>
+    <p>选择寻路方式：</p>
+    <select name="ways" style='margin-left:30px' id='select_path'>
+        <option value="short_dis">最短路径</option>
+        <option value="least_time" selected="selected">最少换乘</option>
+        <option value="r1">备选路径1</option>
+        <option value="r2">备选路径2</option>
+    </select>
+    <br>
     <p>起点：</p>
-    <input type="text" value="万寿路" id="startstop"/><br>
+    <input type="text" value="北土城" id="startstop" style='margin-left:30px'/><br>
     <p>终点：</p>
-    <input type="text" value="国贸" id="aimstop"/><br><br>
-    <button onclick="findpath()" type="button">确定</button>
+    <input type="text" value="和平西桥" id="aimstop" style='margin-left:30px'/><br><br>
+    <button onclick="decide_path()" type="button" style='margin-left:30px'>确定</button>
     <!-- <button type="reset" >重置</button> -->
 </form>
-<div>
+<button 
+onclick="window.location.reload(true);" 
+style="margin-left:30px">
+重置</button>
+</div>
+<div style="float:right;margin-left:100;margin-bottom:100">
     <textarea 
     style="width:180px; height:300px;"  
     type="textarea" 
     id="show" readonly></textarea>
 </div>
 </div>
-<button 
-onclick="window.location.reload(true);" 
-style="width:300px;height:300px;margin-left:400px">
-重置</button>
+
 <!-- <p id="pathresult"></p> -->
 <!-- <script src="stopinfo.js"></script>
 <script src="stopoperation.js"></script> -->
 
 <!-- <script>alert("X:"+document.body.clientWidth+"\nY:"+document.body.clientHeight);</script> -->
+
+<from style="margin-left:200">
+    <p>加减站：&nbsp;&nbsp;&nbsp;
+        <select name="ways" style='margin-left:30px;width:100px;height:30px' id='add_del_jugg'>
+            <option value="add_stop" selected="selected">加站</option>
+            <option value="del_stop">删站</option>
+        </select>
+    </p><br>
+    <p>站名：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input style='margin-left:30px' id=''/></p>
+    <p>x坐标：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input style='margin-left:30px' id=''/>    </p>
+    <p>y坐标：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input style='margin-left:30px' id=''/>    </p>
+    <p>所在线路：
+    <input style='margin-left:30px' id=''/>    </p>
+    <p>相邻站1：&nbsp;
+    <input style='margin-left:30px' id=''/>   
+    &nbsp;&nbsp;&nbsp;距离1：
+    <input style='margin-left:30px' id=''/>    </p>
+    <p>相邻站2：&nbsp;
+    <input style='margin-left:30px' id=''/>   
+    &nbsp;&nbsp;&nbsp;距离2：
+    <input style='margin-left:30px' id=''/>    </p>
+    <button onclick="add_del_stop()" type="button" style='margin-left:300px'>确定</button>
+</from>
 
 
 </body>
