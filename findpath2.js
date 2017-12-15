@@ -23,7 +23,7 @@ function findpart1(l){
         while (xxx != start) {
           xian(stopinfo[xxx].xx,stopinfo[xxx].yy,stopinfo[stopinfo[xxx].father].xx,stopinfo[stopinfo[xxx].father].yy);
           xxx = stopinfo[stopinfo[xxx].father].nm;
-          result.unshift("\n"+xxx+"\n");
+          result.unshift("\n"+xxx+"\n↓");
           yuan(stopinfo[xxx].xx,stopinfo[xxx].yy);
         }
         document.getElementById("show").value=result.join('');
@@ -89,7 +89,7 @@ function findpart2(l,jugg){
         while (xxx != start) {
           xian(stopinfo[xxx].xx,stopinfo[xxx].yy,stopinfo[stopinfo[xxx].father].xx,stopinfo[stopinfo[xxx].father].yy);
           xxx = stopinfo[stopinfo[xxx].father].nm;
-          result.unshift("\n"+xxx+"\n");
+          result.unshift("\n"+xxx+"\n↓");
           yuan(stopinfo[xxx].xx,stopinfo[xxx].yy);
         }
         document.getElementById("show").value=result.join('');
@@ -165,7 +165,7 @@ function findpart3(l1,l2){
         while (xxx != start) {
           xian(stopinfo[xxx].xx,stopinfo[xxx].yy,stopinfo[stopinfo[xxx].father].xx,stopinfo[stopinfo[xxx].father].yy);
           xxx = stopinfo[stopinfo[xxx].father].nm;
-          result.unshift("\n"+xxx+"\n");
+          result.unshift("\n"+xxx+"\n↓");
           yuan(stopinfo[xxx].xx,stopinfo[xxx].yy);
         }
         document.getElementById("show").value=result.join('');

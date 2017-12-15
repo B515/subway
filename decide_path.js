@@ -11,8 +11,9 @@ function decide_path(){
         findpath2();
         break;
         case "r1":
-        alert("敬请期待！");
-        window.location.reload(true);
+        findpath3();
+        // alert("敬请期待！");
+        // window.location.reload(true);
         break;
         case "r2":
         alert("敬请期待！");

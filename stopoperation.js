@@ -131,7 +131,7 @@ function findpath() {
         // yuan(stopinfo[xxx].xx,stopinfo[xxx].yy);
         xian(stopinfo[xxx].xx,stopinfo[xxx].yy,stopinfo[stopinfo[xxx].father].xx,stopinfo[stopinfo[xxx].father].yy);
         xxx = stopinfo[stopinfo[xxx].father].nm;
-        result.unshift("\n"+xxx+"\n");
+        result.unshift("\n"+xxx+"\n↓");
         yuan(stopinfo[xxx].xx,stopinfo[xxx].yy);
         // document.write(xxx + "<br>");
         // document.getElementById("pathresult").innerHTML=xxx + "<br>";
@@ -147,6 +147,7 @@ function findpath() {
       //下一站站名：nxtstp(n,i).nm
       if (open.indexOf(nxtstp(n, i).nm) > -1) {
         nxtstp(n, i).father = stopinfo[n].nm;
+        continue;
       }
       if (close.indexOf(nxtstp(n, i).nm) > -1) continue;
       else {
